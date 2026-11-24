@@ -1,17 +1,17 @@
-# 10–31 December plan: the honest test
+# December plan (10-31 Dec)
 
-## What playing small games can and can't tell you
-Regular Mega-Sena draws between 10 and ~27 December: roughly 6–9 draws. Caixa sometimes pauses or merges regular draws in the run-up to the Virada, so check the official calendar.
+## What playing regular draws can tell you
+Regular Mega-Sena draws between 10 and ~27 December: roughly 6-9 draws. Caixa sometimes pauses or merges regular draws in the run-up to the Virada, so check the official calendar.
 
 If you play **10 tickets per draw for 8 draws (80 tickets, R$480)**:
 - expected quadras: 80 / 2,332 ≈ **0.03**, so about a 97% chance of zero quadras;
 - expected quinas: 80 / 154,518 ≈ 0.0005;
 - expected senas: 80 / 50,063,860 ≈ 0.0000016.
 
-Getting nothing is what the math predicts for *every* ticket, good or bad. Getting a quadra would be luck, not validation. **Your own tickets can't test the strategy.** Don't let either outcome change the Virada plan.
+Zero prizes is the expected result for any ticket, good or bad, and a quadra would just be luck. So your own tickets can't test the strategy, and neither outcome should change the Virada plan.
 
-## What CAN be tested, for free: the model's predictions
-The popularity model makes a falsifiable prediction for every draw: how many quadra and quina winners it should have, given its sales and its six numbers. That is a real out-of-sample test, and it costs nothing.
+## What can be tested for free: the model's predictions
+The popularity model makes a falsifiable prediction for every draw: how many quadra and quina winners it should have, given its sales and its six numbers. That's an out-of-sample test that costs nothing.
 
 **Pre-registered protocol (freeze on 10 Dec, before seeing those draws):**
 1. On 10 Dec, run `run_all.sh`, then commit and tag `freeze-2026-12-10`. No refitting after this.
@@ -26,5 +26,5 @@ The popularity model makes a falsifiable prediction for every draw: how many qua
 - Log every ticket in `playtest_log.csv`. Compare total hits to the expected numbers above and nothing more.
 
 ## Virada decision (by 30 Dec)
-- Tickets: generated in the tool (bottom 1–5%, overlap ≤ 2, not published anywhere).
+- Tickets: generated in the tool (bottom 1-5%, overlap ≤ 2, not published anywhere).
 - Number of tickets = what's left of the budget ÷ 6. Not more.

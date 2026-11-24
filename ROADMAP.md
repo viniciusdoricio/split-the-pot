@@ -1,4 +1,4 @@
-# Roadmap: where deeper math can actually help
+# Roadmap
 
 Ordered by how much each item could change the money you'd get *if* you win. None of them changes the odds of winning.
 
@@ -23,15 +23,15 @@ Virada bettors are a different population (casual players, office bolões). The 
 - Output for any ticket: a credible interval for expected co-winners, not just a point estimate.
 
 ## 5. Designing a set of tickets, not single tickets
-If he buys k tickets, choose them jointly:
+For a set of k tickets, choose them jointly:
 - each ticket low-crowd;
-- pairwise overlap ≤ 2, so he never splits a quina with himself;
+- pairwise overlap ≤ 2, so two of them can never split a quina;
 - compare against Caixa multi-number bets (a 7-number bet = 7 combos sharing 5 numbers each, which means self-splitting quinas) and against bolões (35% fees).
 - Formulate as integer programming or greedy + local search; report the EV per R$.
 
 ## 6. A "is the machine still fair?" monitor
-- Sequential tests (CUSUM on per-number counts, rolling χ² with Monte Carlo p-values) over the last 100–500 draws.
-- A dashboard in the BI tool of choice from data/draws.csv. It's a good portfolio piece even though it will (correctly) keep saying "fair".
+- Sequential tests (CUSUM on per-number counts, rolling χ² with Monte Carlo p-values) over the last 100-500 draws.
+- A dashboard in the BI tool of choice from data/draws.csv. Fine as a portfolio dashboard, even if it should keep saying "fair".
 
 ## Not worth time (already tested, no edge)
 Hot/cold/overdue numbers, repeat-last-draw, sum or even/odd "ideal ranges", LSTM/GBM next-draw predictors, "quantum" anything. If one of these is revived, it goes through the walk-forward harness with multiple-testing correction first.
