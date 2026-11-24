@@ -1,0 +1,173 @@
+{
+ "slope_b5_on_b4": 1.3003254321457598,
+ "sena_validation": {
+  "kappa": 1.6323215728439093,
+  "se": 0.13541525294236534,
+  "z": 12.054192842948414,
+  "theory_kappa_6over4": 1.5,
+  "total_sena_winners": 689,
+  "draws": 2020
+ },
+ "M_distribution_random_combos": {
+  "1": 0.3840892592003511,
+  "5": 0.48365190926269247,
+  "25": 0.6965627809833409,
+  "50": 0.9136328403300047,
+  "75": 1.2071468137472177,
+  "95": 1.8127730488924074,
+  "99": 2.3950705833220853
+ },
+ "virada_2025": {
+  "numbers": [
+   9,
+   13,
+   21,
+   32,
+   33,
+   59
+  ],
+  "sales": 3052431720.0,
+  "combos_bought": 508738620.0,
+  "M_model": 1.539913942062378,
+  "expected_sena_winners_avg_combo": 10.161793757013543,
+  "expected_sena_winners_this_combo": 15.648287882787587,
+  "actual_sena_winners": 6,
+  "expected_quadra_avg": 218155.4974271012,
+  "actual_quadra": 308315,
+  "implied_M4_from_quadra": 1.4132809103425252
+ },
+ "virada_2026_ev": {
+  "B_520M (\u22482025 sales)": {
+   "popular_combo_p95": {
+    "mu_cowinners": 18.83,
+    "expected_share_of_jackpot": 0.0531,
+    "jackpot_if_you_win_expected_R$": 53110153,
+    "ev_jackpot": 1.06,
+    "ev_quina": 0.065,
+    "ev_quadra": 0.072,
+    "ev_total_per_R$6": 1.2,
+    "return_pct": 20.0
+   },
+   "average_combo": {
+    "mu_cowinners": 10.39,
+    "expected_share_of_jackpot": 0.0963,
+    "jackpot_if_you_win_expected_R$": 96273685,
+    "ev_jackpot": 1.92,
+    "ev_quina": 0.107,
+    "ev_quadra": 0.107,
+    "ev_total_per_R$6": 2.14,
+    "return_pct": 35.6
+   },
+   "median_combo": {
+    "mu_cowinners": 9.49,
+    "expected_share_of_jackpot": 0.1054,
+    "jackpot_if_you_win_expected_R$": 105369869,
+    "ev_jackpot": 2.1,
+    "ev_quina": 0.115,
+    "ev_quadra": 0.113,
+    "ev_total_per_R$6": 2.33,
+    "return_pct": 38.9
+   },
+   "unpopular_combo_p5": {
+    "mu_cowinners": 5.02,
+    "expected_share_of_jackpot": 0.1978,
+    "jackpot_if_you_win_expected_R$": 197751838,
+    "ev_jackpot": 3.95,
+    "ev_quina": 0.196,
+    "ev_quadra": 0.173,
+    "ev_total_per_R$6": 4.32,
+    "return_pct": 72.0
+   },
+   "unpopular_combo_p1": {
+    "mu_cowinners": 3.99,
+    "expected_share_of_jackpot": 0.246,
+    "jackpot_if_you_win_expected_R$": 246022378,
+    "ev_jackpot": 4.91,
+    "ev_quina": 0.237,
+    "ev_quadra": 0.202,
+    "ev_total_per_R$6": 5.35,
+    "return_pct": 89.2
+   }
+  },
+  "B_620M (+20%)": {
+   "popular_combo_p95": {
+    "mu_cowinners": 22.45,
+    "expected_share_of_jackpot": 0.0445,
+    "jackpot_if_you_win_expected_R$": 44543999,
+    "ev_jackpot": 0.89,
+    "ev_quina": 0.055,
+    "ev_quadra": 0.06,
+    "ev_total_per_R$6": 1.0,
+    "return_pct": 16.7
+   },
+   "average_combo": {
+    "mu_cowinners": 12.38,
+    "expected_share_of_jackpot": 0.0807,
+    "jackpot_if_you_win_expected_R$": 80747823,
+    "ev_jackpot": 1.61,
+    "ev_quina": 0.09,
+    "ev_quadra": 0.09,
+    "ev_total_per_R$6": 1.79,
+    "return_pct": 29.9
+   },
+   "median_combo": {
+    "mu_cowinners": 11.31,
+    "expected_share_of_jackpot": 0.0884,
+    "jackpot_if_you_win_expected_R$": 88380335,
+    "ev_jackpot": 1.77,
+    "ev_quina": 0.097,
+    "ev_quadra": 0.095,
+    "ev_total_per_R$6": 1.96,
+    "return_pct": 32.6
+   },
+   "unpopular_combo_p5": {
+    "mu_cowinners": 5.99,
+    "expected_share_of_jackpot": 0.1665,
+    "jackpot_if_you_win_expected_R$": 166536965,
+    "ev_jackpot": 3.33,
+    "ev_quina": 0.164,
+    "ev_quadra": 0.145,
+    "ev_total_per_R$6": 3.64,
+    "return_pct": 60.6
+   },
+   "unpopular_combo_p1": {
+    "mu_cowinners": 4.76,
+    "expected_share_of_jackpot": 0.2084,
+    "jackpot_if_you_win_expected_R$": 208425954,
+    "ev_jackpot": 4.16,
+    "ev_quina": 0.199,
+    "ev_quadra": 0.17,
+    "ev_total_per_R$6": 4.53,
+    "return_pct": 75.5
+   }
+  },
+  "conservative_floor_25pct_random_B_520M": {
+   "unpopular_p1": {
+    "mu_cowinners": 5.59,
+    "expected_share_of_jackpot": 0.1783,
+    "jackpot_if_you_win_expected_R$": 178261482,
+    "ev_jackpot": 3.56,
+    "ev_quina": 0.179,
+    "ev_quadra": 0.161,
+    "ev_total_per_R$6": 3.9,
+    "return_pct": 65.0
+   },
+   "average": {
+    "mu_cowinners": 10.39,
+    "expected_share_of_jackpot": 0.0963,
+    "jackpot_if_you_win_expected_R$": 96273685,
+    "ev_jackpot": 1.92,
+    "ev_quina": 0.107,
+    "ev_quadra": 0.107,
+    "ev_total_per_R$6": 2.14,
+    "return_pct": 35.6
+   }
+  }
+ },
+ "examples_M": {
+  "1-2-3-4-5-6": 2.851,
+  "birthday-ish 3-7-10-13-17-25": 4.639,
+  "last Virada 9-13-21-32-33-59": 1.54,
+  "spread high 34-40-46-50-52-58": 0.26
+ }
+}

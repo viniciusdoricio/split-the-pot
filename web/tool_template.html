@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Split the Pot</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* VOICE work tool: a precise money calculator, calm and exact
+   IDEA the Mega-Sena betting slip itself: a green 6x10 volante you mark with a pen
+   PICTURE the live volante, each number tinted by how crowded it is, your six marked in ink
+   COLOUR slip green field, white slip, ink black, orange for crowded numbers
+   TYPE Archivo 800 display + Inter text
+   LAYOUT laptop: slip left 55%, big readout right; phone: title, slip, readout, controls */
+:root{color-scheme:light dark;--bg:light-dark(#f4f7f5,#0c1511);--slip:light-dark(#ffffff,#13201a);--field:light-dark(#1d8a57,#14563a);--ink:light-dark(#0f1a14,#e8f1ec);--soft:light-dark(#56665d,#9fb3a8);--line:light-dark(#cfe0d6,#24382d);--hot:light-dark(#e8641b,#ff8a45);--cool:light-dark(#1d8a57,#4fd08f);--mark:light-dark(#0f1a14,#f2f7f4)}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font:16px/1.55 Inter,system-ui,sans-serif;overflow-x:clip}
+.top{background:var(--field);color:#fff;padding:clamp(22px,3vw,40px) max(5vw,16px) clamp(70px,8vw,110px)}
+.top h1{font:800 clamp(32px,4.6vw,50px)/1.05 Archivo,Inter,sans-serif;letter-spacing:-.02em;margin:0 0 8px;text-wrap:balance}
+.top p{margin:0;max-width:62ch;opacity:.92}
+.wrap{max-width:1240px;margin:clamp(-90px,-7vw,-56px) auto 0;padding:0 max(5vw,16px) 48px}
+.grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:20px;align-items:start}
+.card{background:var(--slip);border:1px solid var(--line);border-radius:14px;padding:clamp(16px,2vw,24px)}
+.slip{display:grid;grid-template-columns:repeat(10,minmax(0,1fr));gap:6px}
+.n{appearance:none;border:1.5px solid var(--line);border-radius:8px;aspect-ratio:1/1.05;font:600 clamp(13px,1.4vw,16px)/1 Inter,sans-serif;color:var(--ink);cursor:pointer;position:relative;min-height:34px;background:var(--slip)}
+.n:hover{border-color:var(--soft)}
+.n:focus-visible{outline:3px solid var(--hot);outline-offset:2px}
+.n.on{background:var(--mark)!important;color:var(--slip);border-color:var(--mark)}
+.legend{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-top:12px;font-size:13px;color:var(--soft)}
+.ramp{height:10px;width:140px;border-radius:5px;background:linear-gradient(90deg,color-mix(in srgb,var(--cool) 55%,var(--slip)),var(--slip),color-mix(in srgb,var(--hot) 60%,var(--slip)))}
+.btns{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+button.b{min-height:44px;padding:0 16px;border-radius:10px;border:1.5px solid var(--ink);background:transparent;color:var(--ink);font:600 15px Inter,sans-serif;cursor:pointer}
+button.b.primary{background:var(--ink);color:var(--slip)}
+button.b:focus-visible{outline:3px solid var(--hot);outline-offset:2px}
+.big{font:800 clamp(48px,7vw,76px)/1 Archivo,Inter,sans-serif;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.lab{font-size:14px;color:var(--soft)}
+.row{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-top:1px solid var(--line);font-variant-numeric:tabular-nums}
+.row b{white-space:nowrap}
+.meter{height:12px;border-radius:6px;background:var(--line);overflow:hidden;margin:10px 0 4px}
+.meter i{display:block;height:100%;background:var(--cool);transition:width .3s}
+.flags{margin:10px 0 0;padding:0;list-style:none;font-size:14px}
+.flags li{padding:3px 0}
+.flags li.bad{color:var(--hot)}
+.set{display:grid;grid-template-columns:repeat(auto-fit,minmax(14em,1fr));gap:16px;margin-top:20px}
+label{font-size:14px;color:var(--soft);display:block}
+input[type=range]{width:100%;accent-color:var(--field);min-height:32px}
+input[type=number]{font:16px Inter,sans-serif;width:6em;min-height:44px;padding:0 10px;border:1.5px solid var(--line);border-radius:8px;background:var(--slip);color:var(--ink)}
+h2{font:700 24px/1.15 Archivo,Inter,sans-serif;margin:0 0 6px}
+.list{margin-top:20px}
+.scroll{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-variant-numeric:tabular-nums}
+th,td{text-align:left;padding:9px 8px;border-top:1px solid var(--line);white-space:nowrap}
+th{font-weight:600;color:var(--soft);font-size:14px}
+td.r,th.r{text-align:right}
+.note{font-size:13px;color:var(--soft);margin-top:14px;max-width:80ch}
+@media(max-width:820px){.grid{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:600px){.slip{gap:4px}.n{border-radius:6px}table{font-size:13px}th,td{padding:6px 4px}}
+@media(prefers-reduced-motion:reduce){.meter i{transition:none}}
+</style>
+</head>
+<body>
+<header class="top">
+  <h1>Split the pot</h1>
+  <p>Your odds of hitting all six are 1 in 50,063,860 whatever you mark. This slip shows the part you control: how many other people are likely holding the same numbers.</p>
+</header>
+<main class="wrap">
+  <div class="grid">
+    <section class="card" aria-label="Betting slip">
+      <div class="slip" id="slip"></div>
+      <div class="legend"><span>Rarely picked</span><span class="ramp"></span><span>Crowded</span><span id="count" style="margin-left:auto"></span></div>
+      <div class="btns">
+        <button class="b primary" id="gen">Generate unpopular ticket</button>
+        <button class="b" id="rnd">Surpresinha (random)</button>
+        <button class="b" id="clr">Clear</button>
+      </div>
+    </section>
+    <section class="card" aria-live="polite">
+      <div class="lab">If this ticket hits 6, other winners expected</div>
+      <div class="big" id="mu">–</div>
+      <div class="meter" aria-hidden="true"><i id="pm" style="width:0"></i></div>
+      <div class="lab" id="pctl">Mark 6 numbers or generate a ticket.</div>
+      <div style="margin-top:14px">
+        <div class="row"><span>Crowd multiplier vs average ticket</span><b id="m">–</b></div>
+        <div class="row"><span>Your expected jackpot if you hit</span><b id="jack">–</b></div>
+        <div class="row"><span>Expected return per R$6 ticket</span><b id="ev">–</b></div>
+        <div class="row"><span>Same ticket, average numbers</span><b id="evavg">–</b></div>
+      </div>
+      <ul class="flags" id="flags"></ul>
+    </section>
+  </div>
+
+  <section class="card set" aria-label="Assumptions">
+    <p class="lab" style="grid-column:1/-1;margin:0">Assumptions. Random bets put a floor under how empty any ticket can be; 25% is a cautious guess, since Caixa doesn't publish the share.</p>
+    <div><label for="bets">Combinations sold: <b id="betsv"></b> million</label><input type="range" id="bets" min="400" max="750" step="10" value="520"></div>
+    <div><label for="pool">Jackpot (sena) pool: R$ <b id="poolv"></b> billion</label><input type="range" id="pool" min="0.7" max="1.4" step="0.05" value="1"></div>
+    <div><label for="pc">Generate from the least crowded: <b id="pcv"></b>% of all tickets</label><input type="range" id="pc" min="1" max="20" step="1" value="5"></div>
+    <div><label for="sur">Bets that are pure random (Surpresinha etc.): <b id="surv"></b>%</label><input type="range" id="sur" min="0" max="50" step="5" value="25"></div>
+  </section>
+
+  <section class="card list">
+    <h2>A set of tickets</h2>
+    <p class="lab" style="margin:0 0 10px">Each ticket shares at most 2 numbers with the others, has no sequences or slip lines, and is not a past result.</p>
+    <div class="btns" style="margin-top:0"><label for="k" style="align-self:center;margin-right:4px">Tickets</label><input type="number" id="k" min="1" max="30" value="5"><button class="b primary" id="mk">Make set</button><button class="b" id="cp">Copy</button><span class="lab" id="cpmsg" style="align-self:center"></span></div>
+    <div class="scroll"><table><thead><tr><th>#</th><th>Numbers</th><th class="r">Crowd ×</th><th class="r">Others expected</th><th class="r">Return per R$6</th></tr></thead><tbody id="tb"></tbody></table></div>
+    <p class="note" id="foot"></p>
+  </section>
+</main>
+<script>
+{
+const BETA = __BETA__;
+const PAST = "__PAST__";
+const META = __META__;
+const C6 = 50063860, K = 1.5;
+const pastSet = new Set(PAST.split('|'));
+const $ = id => document.getElementById(id);
+let rs = 2463534242;
+const rand = () => { rs ^= rs << 13; rs >>>= 0; rs ^= rs >>> 17; rs ^= rs << 5; rs >>>= 0; return rs / 4294967296; };
+rs = (Date.now() ^ 0x9e3779b9) >>> 0 || 1;
+const draw6 = () => { const a = Array.from({length: 60}, (_, i) => i + 1); for (let i = 0; i < 6; i++) { const j = i + Math.floor(rand() * (60 - i)); [a[i], a[j]] = [a[j], a[i]]; } return a.slice(0, 6).sort((x, y) => x - y); };
+const score = c => c.reduce((s, n) => s + BETA[n - 1], 0);
+// reference distribution of scores and normaliser over random tickets
+const N = 120000, ref = new Float64Array(N); let norm = 0;
+for (let i = 0; i < N; i++) { const s = score(draw6()); ref[i] = s; norm += Math.exp(K * s); }
+norm /= N; ref.sort();
+const pctOf = s => { let lo = 0, hi = N; while (lo < hi) { const m = (lo + hi) >> 1; if (ref[m] < s) lo = m + 1; else hi = m; } return lo / N * 100; };
+const mult = c => { const f = +$('sur').value / 100; return f + (1 - f) * Math.exp(K * score(c)) / norm; };
+const ev = (M, B, pool) => {
+  const mu = B / C6 * M, share = (1 - Math.exp(-mu)) / mu, tot = pool / 0.9;
+  const q5 = 0.05 * tot / Math.max(B / 154518 * M ** (5 / 6), 1) / 154518;
+  const q4 = 0.05 * tot / Math.max(B / 2332 * M ** (4 / 6), 1) / 2332;
+  return {mu, share, jack: pool * share, total: pool / C6 * share + q5 + q4};
+};
+const flagsOf = c => {
+  const f = [], d = c.slice(1).map((x, i) => x - c[i]);
+  if (pastSet.has(c.join('-'))) f.push(['bad', 'This exact combination was already drawn. Many people replay past results.']);
+  if (d.filter(x => x === 1).length > 1) f.push(['bad', 'Several consecutive numbers: sequences are a popular pattern.']);
+  const col = Array(10).fill(0), row = Array(6).fill(0); c.forEach(n => { col[n % 10]++; row[Math.floor((n - 1) / 10)]++; });
+  if (Math.max(...col) > 2) f.push(['bad', 'Three or more in one slip column: lines on the slip get copied.']);
+  if (Math.max(...row) > 3) f.push(['bad', 'Four or more in one slip row.']);
+  if (c.every(n => n <= 31)) f.push(['bad', 'All six are 31 or below, where birthday tickets live.']);
+  if (c.filter(n => [3, 5, 7, 9, 10, 13].includes(n)).length >= 2) f.push(['bad', 'Two or more classic lucky numbers (3, 5, 7, 9, 10, 13).']);
+  return f;
+};
+const okTicket = c => flagsOf(c).length === 0 && c.filter(n => n % 5 === 0).length <= 2;
+const brl = v => v >= 1e6 ? 'R$ ' + (v / 1e6).toLocaleString('en-US', {maximumFractionDigits: 0}) + ' mi' : 'R$ ' + v.toFixed(2);
+const B = () => +$('bets').value * 1e6, P = () => +$('pool').value * 1e9;
+// slip
+const minB = Math.min(...BETA), maxB = Math.max(...BETA);
+const slip = $('slip'); const sel = new Set();
+slip.innerHTML = BETA.map((b, i) => {
+  const t = b >= 0 ? Math.round(b / maxB * 60) : Math.round(b / minB * 50);
+  const bg = b >= 0 ? `color-mix(in srgb, var(--hot) ${t}%, var(--slip))` : `color-mix(in srgb, var(--cool) ${t}%, var(--slip))`;
+  const pct = Math.round((Math.exp(b) - 1) * 100);
+  return `<button class="n" id="n${i + 1}" data-n="${i + 1}" style="background:${bg}" aria-pressed="false" title="${i + 1}: ${pct > 0 ? '+' : ''}${pct}% crowd">${String(i + 1).padStart(2, '0')}</button>`;
+}).join('');
+const paint = () => { for (let n = 1; n <= 60; n++) { const el = $('n' + n), on = sel.has(n); el.classList.toggle('on', on); el.setAttribute('aria-pressed', on); } $('count').textContent = sel.size + ' of 6 marked'; };
+const update = () => {
+  paint(); $('betsv').textContent = $('bets').value; $('poolv').textContent = (+$('pool').value).toFixed(2); $('pcv').textContent = $('pc').value; $('surv').textContent = $('sur').value;
+  const avg = ev(1, B(), P());
+  $('evavg').textContent = 'R$ ' + avg.total.toFixed(2) + ' (' + Math.round(avg.total / 6 * 100) + '%)';
+  const fl = $('flags'); fl.innerHTML = '';
+  if (sel.size !== 6) { ['mu', 'm', 'jack', 'ev'].forEach(id => $(id).textContent = '–'); $('pm').style.width = '0'; $('pctl').textContent = 'Mark 6 numbers or generate a ticket.'; return; }
+  const c = [...sel].sort((a, b) => a - b), M = mult(c), e = ev(M, B(), P()), p = pctOf(score(c));
+  $('mu').textContent = e.mu.toFixed(1);
+  $('pm').style.width = Math.max(2, 100 - p) + '%';
+  $('pctl').textContent = `Less crowded than ${Math.round(100 - p)}% of all possible tickets`;
+  $('m').textContent = M.toFixed(2) + '×';
+  $('jack').textContent = brl(e.jack);
+  $('ev').textContent = 'R$ ' + e.total.toFixed(2) + ' (' + Math.round(e.total / 6 * 100) + '%)';
+  const f = flagsOf(c); if (!f.length) f.push(['', 'No crowd patterns found.']);
+  f.forEach(([k, t]) => { const li = document.createElement('li'); li.className = k; li.textContent = t; fl.appendChild(li); });
+};
+slip.addEventListener('click', e => { const t = e.target.closest('.n'); if (!t) return; const n = +t.dataset.n; if (sel.has(n)) sel.delete(n); else if (sel.size < 6) sel.add(n); update(); });
+const thr = () => ref[Math.floor(+$('pc').value / 100 * (N - 1))];
+const genOne = (avoid = []) => { for (let i = 0; i < 400000; i++) { const c = draw6(); if (score(c) > thr() || !okTicket(c)) continue; if (avoid.every(a => a.filter(n => c.includes(n)).length <= 2)) return c; } return null; };
+const setSel = c => { sel.clear(); c.forEach(n => sel.add(n)); update(); };
+$('gen').addEventListener('click', () => { const c = genOne(); if (c) setSel(c); });
+$('rnd').addEventListener('click', () => setSel(draw6()));
+$('clr').addEventListener('click', () => { sel.clear(); update(); });
+['bets', 'pool', 'pc', 'sur'].forEach(id => $(id).addEventListener('input', () => { update(); renderSet(); }));
+let set = [];
+const renderSet = () => {
+  $('tb').innerHTML = set.map((c, i) => { const M = mult(c), e = ev(M, B(), P()); return `<tr><td>${i + 1}</td><td>${c.map(n => String(n).padStart(2, '0')).join(' ')}</td><td class="r">${M.toFixed(2)}</td><td class="r">${e.mu.toFixed(1)}</td><td class="r">R$ ${e.total.toFixed(2)}</td></tr>`; }).join('');
+  const cost = set.length * 6, evs = set.reduce((s, c) => s + ev(mult(c), B(), P()).total, 0);
+  $('foot').textContent = set.length ? `${set.length} tickets cost R$ ${cost}. Expected return R$ ${evs.toFixed(2)}. Chance any of them hits 6: 1 in ${Math.round(C6 / set.length).toLocaleString('en-US')}. Model: popularity fit on quadra and quina winner counts, ${META.draws.toLocaleString('en-US')} draws to contest ${META.last} (${META.date}). Bets close 22:00 on 31 Dec; draw 11:00 on 1 Jan 2027.` : '';
+};
+$('mk').addEventListener('click', () => { const k = Math.max(1, Math.min(30, +$('k').value || 5)); set = []; for (let i = 0; i < k; i++) { const c = genOne(set); if (!c) break; set.push(c); } renderSet(); });
+$('cp').addEventListener('click', async () => { const txt = set.map(c => c.map(n => String(n).padStart(2, '0')).join(' ')).join('\n'); try { await navigator.clipboard.writeText(txt); $('cpmsg').textContent = 'Copied'; } catch (e) { $('cpmsg').textContent = 'Copy blocked; select the table instead'; } });
+setSel(genOne() || draw6());
+$('mk').click();
+}
+</script>
+</body>
+</html>

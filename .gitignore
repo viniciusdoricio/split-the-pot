@@ -1,0 +1,8 @@
+.venv/
+__pycache__/
+out/*.pkl
+out/*.log
+.DS_Store
+# your own tickets and generated tickets stay local (PLAYTEST.md: not published anywhere)
+out/e_tickets.json
+playtest_log.csv

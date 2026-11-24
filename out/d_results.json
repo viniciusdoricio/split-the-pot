@@ -1,0 +1,64 @@
+{
+ "split_half": {
+  "r": 0.07091509974366943,
+  "p": 0.5902806037502403
+ },
+ "era_to_next_corr": [
+  0.25887236479783804,
+  -0.030827051311801378,
+  0.07246768008652305,
+  0.22035532866679503,
+  0.3199683676230301
+ ],
+ "strategies": {
+  "hot_all_time": {
+   "mean_hits": 0.602,
+   "z_vs_0.6": 0.15,
+   "quadras_or_better": 1,
+   "draws": 2789
+  },
+  "cold_all_time": {
+   "mean_hits": 0.5672,
+   "z_vs_0.6": -2.55,
+   "quadras_or_better": 0,
+   "draws": 2789
+  },
+  "hot_last_50": {
+   "mean_hits": 0.6397,
+   "z_vs_0.6": 2.9,
+   "quadras_or_better": 2,
+   "draws": 2789
+  },
+  "most_overdue": {
+   "mean_hits": 0.5758,
+   "z_vs_0.6": -1.86,
+   "quadras_or_better": 1,
+   "draws": 2789
+  },
+  "repeat_last_draw": {
+   "mean_hits": 0.5837,
+   "z_vs_0.6": -1.26,
+   "quadras_or_better": 2,
+   "draws": 2789
+  },
+  "random": {
+   "mean_hits": 0.5787,
+   "z_vs_0.6": -1.61,
+   "quadras_or_better": 3,
+   "draws": 2789
+  }
+ },
+ "expected_quadras_random": 1.2140745111233444,
+ "ml": {
+  "train_draws": 2116,
+  "test_draws": 773,
+  "auc": 0.5003,
+  "auc_null_95": [
+   0.4913,
+   0.508
+  ],
+  "top6_mean_hits": 0.6041,
+  "expected": 0.6,
+  "quadras": 1
+ }
+}
