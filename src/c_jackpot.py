@@ -4,6 +4,7 @@ import os; os.makedirs(os.path.join(os.path.dirname(os.path.abspath(__file__)), 
 import json, numpy as np, pandas as pd
 import statsmodels.api as sm
 from math import comb
+from common import ev
 
 rng = np.random.default_rng(31)
 df = pd.read_pickle('draws.pkl'); df['dt'] = pd.to_datetime(df.date, dayfirst=True)
@@ -45,19 +46,6 @@ out['virada_2025'] = {'numbers': list(map(int, v25.d)), 'sales': float(v25.sales
                       'implied_M4_from_quadra': float(v25.w4 / (B25 / 2332))}
 
 # (3) Virada 2026 EV per R$6 ticket
-def ev(Mc, B, sena_pool=1.0e9):
-    mu = B / comb(60, 6) * Mc
-    share = (1 - np.exp(-mu)) / mu                       # E[1/(1+K)], K~Poisson(mu)
-    jack = sena_pool / comb(60, 6) * share
-    total_rateio = sena_pool / 0.90
-    q5 = 0.05 * total_rateio; q4 = 0.05 * total_rateio
-    # quina/quadra: thousands of winners, share ~ pool / expected winners (popularity scales ~M^(5/6), M^(4/6))
-    e5 = q5 / max(B / 154_518 * Mc ** (5 / 6), 1) / 154_518
-    e4 = q4 / max(B / 2_332 * Mc ** (4 / 6), 1) / 2_332
-    return {'mu_cowinners': round(mu, 2), 'expected_share_of_jackpot': round(share, 4),
-            'jackpot_if_you_win_expected_R$': round(sena_pool * share), 'ev_jackpot': round(jack, 2),
-            'ev_quina': round(e5, 3), 'ev_quadra': round(e4, 3), 'ev_total_per_R$6': round(jack + e5 + e4, 2),
-            'return_pct': round((jack + e5 + e4) / 6 * 100, 1)}
 scen = {}
 for label, B in [('B_520M (≈2025 sales)', 520e6), ('B_620M (+20%)', 620e6)]:
     scen[label] = {'popular_combo_p95': ev(pct[95], B), 'average_combo': ev(1.0, B), 'median_combo': ev(pct[50], B),

@@ -2,7 +2,10 @@
 
 Ordered by how much each item could change the money you'd get *if* you win. None of them changes the odds of winning.
 
-## 1. Measure the random-bet floor instead of guessing it (highest value)
+## 1. Measure the random-bet floor instead of guessing it (done, partly)
+Result (README, "Random-bet floor"): f = 0 is ruled out and the floor is large (0.4-0.7), but quadra and quina disagree (0.51 vs 0.68), so the share of random bets isn't identified. Next: find what flattens quina crowding beyond random bets (multi-number bets, bolões) before changing the tool's default.
+
+Original plan:
 The web tool assumes 25% of bets are pure random (Surpresinha, random bolões). That number decides how empty the emptiest ticket can really be, and it moves the best-case return between about 65% and 89%.
 - Fit a mixture model: E[W4] = B · P4 · (f + (1−f) · exp(Σβ)) for f and the betas jointly (nonlinear Poisson / quasi-likelihood; scipy.optimize or statsmodels with a custom link).
 - f is identified by the draws made of the least popular numbers. Check the profile likelihood for f, then refit the jackpot validation with it.

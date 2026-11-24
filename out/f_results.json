@@ -1,0 +1,972 @@
+{
+ "draws": 2020,
+ "tiers_fitted": [
+  4,
+  5
+ ],
+ "w6_used_in_fitting": false,
+ "sanity": {
+  "loglin_vs_b_popularity_max_abs_diff": 2.1584612971969896e-08,
+  "struct_theta_f0_vs_beta_r": 0.9994929806924846,
+  "slope_beta_on_theta": 0.6326197335415853,
+  "first_order_theory_slope": 0.6296296296296295,
+  "implied_jackpot_exponent_beta_scale": 1.5807284328639504
+ },
+ "primary": {
+  "f_hat": 0.5066333366103101,
+  "profile_ci95": [
+   0.45561718826804143,
+   0.551661458845361
+  ],
+  "ci_open_low": false,
+  "ci_open_high": false,
+  "D_at_f0": 130.4580798940733,
+  "bootstrap_ci95_by_year": [
+   0.3814888966813393,
+   0.5750190873035835
+  ],
+  "bootstrap_sd": 0.0459334509684261,
+  "bootstrap_reps": 200,
+  "reported_ci95": [
+   0.3814888966813393,
+   0.5750190873035835
+  ],
+  "phi_used": {
+   "4": 195.37350181268894,
+   "5": 37.74791391190546
+  },
+  "phi_at_f_hat": {
+   "4": 183.4094061550787,
+   "5": 35.15052689539849
+  },
+  "profile": {
+   "f": [
+    0.0,
+    0.02,
+    0.04,
+    0.06,
+    0.08,
+    0.1,
+    0.12,
+    0.14,
+    0.16,
+    0.18,
+    0.2,
+    0.22,
+    0.24,
+    0.26,
+    0.28,
+    0.3,
+    0.32,
+    0.34,
+    0.36,
+    0.38,
+    0.4,
+    0.42,
+    0.44,
+    0.46,
+    0.48,
+    0.5,
+    0.52,
+    0.54,
+    0.56,
+    0.58,
+    0.6,
+    0.62,
+    0.64,
+    0.66,
+    0.68,
+    0.7,
+    0.72,
+    0.74,
+    0.76,
+    0.78,
+    0.8,
+    0.82,
+    0.84,
+    0.86,
+    0.88,
+    0.9
+   ],
+   "D": [
+    130.458,
+    125.002,
+    119.446,
+    113.795,
+    108.05,
+    102.217,
+    96.302,
+    90.312,
+    84.256,
+    78.146,
+    71.995,
+    65.821,
+    59.644,
+    53.488,
+    47.382,
+    41.361,
+    35.467,
+    29.748,
+    24.263,
+    19.08,
+    14.281,
+    9.962,
+    6.236,
+    3.237,
+    1.121,
+    0.075,
+    0.315,
+    2.101,
+    5.733,
+    11.568,
+    20.027,
+    31.603,
+    46.879,
+    66.544,
+    91.409,
+    122.439,
+    160.774,
+    207.832,
+    266.251,
+    338.797,
+    427.469,
+    534.597,
+    659.284,
+    816.656,
+    1009.611,
+    1245.906
+   ]
+  },
+  "virada_offset": {
+   "4": -0.04206731701762137,
+   "5": -0.08666868629950324
+  }
+ },
+ "diagnostics": {
+  "W4_only": {
+   "f_hat": 0.5063107996722912,
+   "ci_bonferroni4": [
+    0.4294402437141569,
+    0.5673346686936751
+   ],
+   "ci_open_high": false,
+   "draws": 2020
+  },
+  "W5_only": {
+   "f_hat": 0.6842423883880894,
+   "ci_bonferroni4": [
+    0.5816287873185639,
+    0.7588162873185639
+   ],
+   "ci_open_high": false,
+   "draws": 2020
+  },
+  "before_2015": {
+   "f_hat": 0.4562210944861714,
+   "ci_bonferroni4": [
+    0.3085433411047125,
+    0.5625935914121178
+   ],
+   "ci_open_high": false,
+   "draws": 596
+  },
+  "2015_on": {
+   "f_hat": 0.5384721050617407,
+   "ci_bonferroni4": [
+    0.4636783799247691,
+    0.5980772532831793
+   ],
+   "ci_open_high": false,
+   "draws": 1424
+  },
+  "W4_W5_cis_overlap": false,
+  "eras_cis_overlap": true
+ },
+ "validation_w6": {
+  "blocks": 10,
+  "total_w6": 689,
+  "logscore": {
+   "cur": -1328.592814113007,
+   "curk": -1338.8366157743867,
+   "new": -1309.0745113722303
+  },
+  "delta_new_minus_current_k1.5": 19.51830274077674,
+  "delta_ci95_year_bootstrap": [
+   1.4000846621998486,
+   46.36593663492636
+  ],
+  "delta_new_minus_current_kfitted": 29.762104402156428,
+  "delta_kfitted_ci95": [
+   8.37808786410142,
+   64.95322968046986
+  ],
+  "verdict_preregistered": "pass (better)",
+  "robustness": {
+   "delta_viradas_only": 14.70194818180571,
+   "delta_excl_viradas": 4.816354558971026,
+   "delta_excl_viradas_ci95": [
+    -2.1125865067861485,
+    12.020579296870494
+   ],
+   "delta_excl_contest_2110": 9.431554308357327,
+   "draws_new_better": 1111,
+   "draws_compared": 2020,
+   "sign_test_p": 7.615800554103443e-06,
+   "delta_by_block": [
+    2.02,
+    0.2,
+    -0.09,
+    -1.05,
+    3.78,
+    10.89,
+    0.84,
+    2.07,
+    -0.62,
+    1.48
+   ]
+  },
+  "f_by_fold": [
+   0.499,
+   0.515,
+   0.522,
+   0.522,
+   0.505,
+   0.473,
+   0.502,
+   0.493,
+   0.518,
+   0.52
+  ],
+  "kappa_fitted_by_fold": [
+   1.876,
+   1.929,
+   1.798,
+   1.922,
+   1.738,
+   1.329,
+   1.746,
+   1.78,
+   1.819,
+   1.857
+  ],
+  "calibration_by_decile_of_new_m6": [
+   {
+    "decile": 0,
+    "mean_m6": 0.5810960366728196,
+    "obs_w6": 39,
+    "exp_new": 36.8,
+    "exp_cur": 30.6
+   },
+   {
+    "decile": 1,
+    "mean_m6": 0.6428431711079267,
+    "obs_w6": 39,
+    "exp_new": 40.4,
+    "exp_cur": 39.2
+   },
+   {
+    "decile": 2,
+    "mean_m6": 0.6983537279446079,
+    "obs_w6": 38,
+    "exp_new": 41.5,
+    "exp_cur": 42.2
+   },
+   {
+    "decile": 3,
+    "mean_m6": 0.7557976451744238,
+    "obs_w6": 80,
+    "exp_new": 68.3,
+    "exp_cur": 74.1
+   },
+   {
+    "decile": 4,
+    "mean_m6": 0.8220720482686802,
+    "obs_w6": 53,
+    "exp_new": 44.5,
+    "exp_cur": 47.8
+   },
+   {
+    "decile": 5,
+    "mean_m6": 0.8990825539296283,
+    "obs_w6": 52,
+    "exp_new": 53.4,
+    "exp_cur": 57.7
+   },
+   {
+    "decile": 6,
+    "mean_m6": 1.0012213364645568,
+    "obs_w6": 41,
+    "exp_new": 53.8,
+    "exp_cur": 58.0
+   },
+   {
+    "decile": 7,
+    "mean_m6": 1.145393468804491,
+    "obs_w6": 83,
+    "exp_new": 98.6,
+    "exp_cur": 107.3
+   },
+   {
+    "decile": 8,
+    "mean_m6": 1.3758496972196663,
+    "obs_w6": 94,
+    "exp_new": 94.0,
+    "exp_cur": 98.2
+   },
+   {
+    "decile": 9,
+    "mean_m6": 2.2316042508626603,
+    "obs_w6": 170,
+    "exp_new": 149.5,
+    "exp_cur": 129.8
+   }
+  ],
+  "virada_draws": [
+   {
+    "contest": 1140,
+    "w6": 2,
+    "mu_new": 2.68,
+    "mu_cur": 2.95
+   },
+   {
+    "contest": 1245,
+    "w6": 4,
+    "mu_new": 3.61,
+    "mu_cur": 4.22
+   },
+   {
+    "contest": 1350,
+    "w6": 5,
+    "mu_new": 5.53,
+    "mu_cur": 6.21
+   },
+   {
+    "contest": 1455,
+    "w6": 3,
+    "mu_new": 4.54,
+    "mu_cur": 4.7
+   },
+   {
+    "contest": 1560,
+    "w6": 4,
+    "mu_new": 4.93,
+    "mu_cur": 4.19
+   },
+   {
+    "contest": 1665,
+    "w6": 4,
+    "mu_new": 9.02,
+    "mu_cur": 9.53
+   },
+   {
+    "contest": 1775,
+    "w6": 6,
+    "mu_new": 2.53,
+    "mu_cur": 2.73
+   },
+   {
+    "contest": 1890,
+    "w6": 6,
+    "mu_new": 5.54,
+    "mu_cur": 6.34
+   },
+   {
+    "contest": 2000,
+    "w6": 17,
+    "mu_new": 12.37,
+    "mu_cur": 10.99
+   },
+   {
+    "contest": 2110,
+    "w6": 52,
+    "mu_new": 19.1,
+    "mu_cur": 14.36
+   },
+   {
+    "contest": 2220,
+    "w6": 4,
+    "mu_new": 2.31,
+    "mu_cur": 2.14
+   },
+   {
+    "contest": 2330,
+    "w6": 2,
+    "mu_new": 4.47,
+    "mu_cur": 4.81
+   },
+   {
+    "contest": 2440,
+    "w6": 2,
+    "mu_new": 9.72,
+    "mu_cur": 9.86
+   },
+   {
+    "contest": 2550,
+    "w6": 5,
+    "mu_new": 10.92,
+    "mu_cur": 12.99
+   },
+   {
+    "contest": 2670,
+    "w6": 5,
+    "mu_new": 7.75,
+    "mu_cur": 8.61
+   },
+   {
+    "contest": 2810,
+    "w6": 8,
+    "mu_new": 7.77,
+    "mu_cur": 9.31
+   },
+   {
+    "contest": 2955,
+    "w6": 6,
+    "mu_new": 15.02,
+    "mu_cur": 17.82
+   },
+   {
+    "contest": 3010,
+    "w6": 2,
+    "mu_new": 1.79,
+    "mu_cur": 2.16
+   }
+  ]
+ },
+ "virada_2026_ev": {
+  "f_hat": {
+   "f": 0.5066333366103101,
+   "popular_p95": {
+    "ticket_example": [
+     3,
+     5,
+     10,
+     36,
+     37,
+     59
+    ],
+    "M6": 1.93,
+    "B_520M": {
+     "mu_cowinners": 20.05,
+     "expected_share_of_jackpot": 0.0499,
+     "jackpot_if_you_win_expected_R$": 49871627,
+     "ev_jackpot": 1.0,
+     "ev_quina": 0.061,
+     "ev_quadra": 0.068,
+     "ev_total_per_R$6": 1.12,
+     "return_pct": 18.7
+    },
+    "B_620M": {
+     "mu_cowinners": 23.91,
+     "expected_share_of_jackpot": 0.0418,
+     "jackpot_if_you_win_expected_R$": 41827816,
+     "ev_jackpot": 0.84,
+     "ev_quina": 0.051,
+     "ev_quadra": 0.057,
+     "ev_total_per_R$6": 0.94,
+     "return_pct": 15.7
+    }
+   },
+   "median_p50": {
+    "ticket_example": [
+     1,
+     4,
+     27,
+     38,
+     39,
+     45
+    ],
+    "M6": 0.846,
+    "B_520M": {
+     "mu_cowinners": 8.78,
+     "expected_share_of_jackpot": 0.1138,
+     "jackpot_if_you_win_expected_R$": 113848949,
+     "ev_jackpot": 2.27,
+     "ev_quina": 0.121,
+     "ev_quadra": 0.116,
+     "ev_total_per_R$6": 2.51,
+     "return_pct": 41.9
+    },
+    "B_620M": {
+     "mu_cowinners": 10.47,
+     "expected_share_of_jackpot": 0.0955,
+     "jackpot_if_you_win_expected_R$": 95498161,
+     "ev_jackpot": 1.91,
+     "ev_quina": 0.101,
+     "ev_quadra": 0.098,
+     "ev_total_per_R$6": 2.11,
+     "return_pct": 35.1
+    }
+   },
+   "unpopular_p5": {
+    "ticket_example": [
+     26,
+     39,
+     43,
+     45,
+     53,
+     58
+    ],
+    "M6": 0.584,
+    "B_520M": {
+     "mu_cowinners": 6.07,
+     "expected_share_of_jackpot": 0.1644,
+     "jackpot_if_you_win_expected_R$": 164389922,
+     "ev_jackpot": 3.28,
+     "ev_quina": 0.173,
+     "ev_quadra": 0.161,
+     "ev_total_per_R$6": 3.62,
+     "return_pct": 60.3
+    },
+    "B_620M": {
+     "mu_cowinners": 7.24,
+     "expected_share_of_jackpot": 0.1381,
+     "jackpot_if_you_win_expected_R$": 138095611,
+     "ev_jackpot": 2.76,
+     "ev_quina": 0.145,
+     "ev_quadra": 0.135,
+     "ev_total_per_R$6": 3.04,
+     "return_pct": 50.6
+    }
+   },
+   "unpopular_p1": {
+    "ticket_example": [
+     20,
+     31,
+     32,
+     41,
+     52,
+     54
+    ],
+    "M6": 0.55,
+    "B_520M": {
+     "mu_cowinners": 5.71,
+     "expected_share_of_jackpot": 0.1746,
+     "jackpot_if_you_win_expected_R$": 174569823,
+     "ev_jackpot": 3.49,
+     "ev_quina": 0.186,
+     "ev_quadra": 0.174,
+     "ev_total_per_R$6": 3.85,
+     "return_pct": 64.1
+    },
+    "B_620M": {
+     "mu_cowinners": 6.81,
+     "expected_share_of_jackpot": 0.1467,
+     "jackpot_if_you_win_expected_R$": 146737917,
+     "ev_jackpot": 2.93,
+     "ev_quina": 0.156,
+     "ev_quadra": 0.146,
+     "ev_total_per_R$6": 3.23,
+     "return_pct": 53.9
+    }
+   },
+   "average": {
+    "M6": 1.0,
+    "B_520M": {
+     "mu_cowinners": 10.39,
+     "expected_share_of_jackpot": 0.0963,
+     "jackpot_if_you_win_expected_R$": 96273685,
+     "ev_jackpot": 1.92,
+     "ev_quina": 0.107,
+     "ev_quadra": 0.107,
+     "ev_total_per_R$6": 2.14,
+     "return_pct": 35.6
+    },
+    "B_620M": {
+     "mu_cowinners": 12.38,
+     "expected_share_of_jackpot": 0.0807,
+     "jackpot_if_you_win_expected_R$": 80747823,
+     "ev_jackpot": 1.61,
+     "ev_quina": 0.09,
+     "ev_quadra": 0.09,
+     "ev_total_per_R$6": 1.79,
+     "return_pct": 29.9
+    }
+   },
+   "mean_M6_check": 0.9994
+  },
+  "ci_low": {
+   "f": 0.3814888966813393,
+   "popular_p95": {
+    "ticket_example": [
+     3,
+     7,
+     8,
+     19,
+     32,
+     55
+    ],
+    "M6": 1.919,
+    "B_520M": {
+     "mu_cowinners": 19.93,
+     "expected_share_of_jackpot": 0.0502,
+     "jackpot_if_you_win_expected_R$": 50180738,
+     "ev_jackpot": 1.0,
+     "ev_quina": 0.061,
+     "ev_quadra": 0.068,
+     "ev_total_per_R$6": 1.13,
+     "return_pct": 18.9
+    },
+    "B_620M": {
+     "mu_cowinners": 23.76,
+     "expected_share_of_jackpot": 0.0421,
+     "jackpot_if_you_win_expected_R$": 42087071,
+     "ev_jackpot": 0.84,
+     "ev_quina": 0.051,
+     "ev_quadra": 0.057,
+     "ev_total_per_R$6": 0.95,
+     "return_pct": 15.8
+    }
+   },
+   "median_p50": {
+    "ticket_example": [
+     5,
+     16,
+     21,
+     26,
+     49,
+     53
+    ],
+    "M6": 0.865,
+    "B_520M": {
+     "mu_cowinners": 8.99,
+     "expected_share_of_jackpot": 0.1112,
+     "jackpot_if_you_win_expected_R$": 111241232,
+     "ev_jackpot": 2.22,
+     "ev_quina": 0.118,
+     "ev_quadra": 0.114,
+     "ev_total_per_R$6": 2.45,
+     "return_pct": 40.9
+    },
+    "B_620M": {
+     "mu_cowinners": 10.72,
+     "expected_share_of_jackpot": 0.0933,
+     "jackpot_if_you_win_expected_R$": 93308680,
+     "ev_jackpot": 1.86,
+     "ev_quina": 0.099,
+     "ev_quadra": 0.095,
+     "ev_total_per_R$6": 2.06,
+     "return_pct": 34.3
+    }
+   },
+   "unpopular_p5": {
+    "ticket_example": [
+     16,
+     22,
+     31,
+     45,
+     50,
+     57
+    ],
+    "M6": 0.535,
+    "B_520M": {
+     "mu_cowinners": 5.55,
+     "expected_share_of_jackpot": 0.1794,
+     "jackpot_if_you_win_expected_R$": 179371360,
+     "ev_jackpot": 3.58,
+     "ev_quina": 0.182,
+     "ev_quadra": 0.164,
+     "ev_total_per_R$6": 3.93,
+     "return_pct": 65.5
+    },
+    "B_620M": {
+     "mu_cowinners": 6.62,
+     "expected_share_of_jackpot": 0.1508,
+     "jackpot_if_you_win_expected_R$": 150824491,
+     "ev_jackpot": 3.01,
+     "ev_quina": 0.153,
+     "ev_quadra": 0.137,
+     "ev_total_per_R$6": 3.3,
+     "return_pct": 55.0
+    }
+   },
+   "unpopular_p1": {
+    "ticket_example": [
+     28,
+     31,
+     41,
+     51,
+     53,
+     55
+    ],
+    "M6": 0.479,
+    "B_520M": {
+     "mu_cowinners": 4.98,
+     "expected_share_of_jackpot": 0.1995,
+     "jackpot_if_you_win_expected_R$": 199472566,
+     "ev_jackpot": 3.98,
+     "ev_quina": 0.205,
+     "ev_quadra": 0.185,
+     "ev_total_per_R$6": 4.37,
+     "return_pct": 72.9
+    },
+    "B_620M": {
+     "mu_cowinners": 5.94,
+     "expected_share_of_jackpot": 0.168,
+     "jackpot_if_you_win_expected_R$": 168013964,
+     "ev_jackpot": 3.36,
+     "ev_quina": 0.172,
+     "ev_quadra": 0.155,
+     "ev_total_per_R$6": 3.68,
+     "return_pct": 61.4
+    }
+   },
+   "average": {
+    "M6": 1.0,
+    "B_520M": {
+     "mu_cowinners": 10.39,
+     "expected_share_of_jackpot": 0.0963,
+     "jackpot_if_you_win_expected_R$": 96273685,
+     "ev_jackpot": 1.92,
+     "ev_quina": 0.107,
+     "ev_quadra": 0.107,
+     "ev_total_per_R$6": 2.14,
+     "return_pct": 35.6
+    },
+    "B_620M": {
+     "mu_cowinners": 12.38,
+     "expected_share_of_jackpot": 0.0807,
+     "jackpot_if_you_win_expected_R$": 80747823,
+     "ev_jackpot": 1.61,
+     "ev_quina": 0.09,
+     "ev_quadra": 0.09,
+     "ev_total_per_R$6": 1.79,
+     "return_pct": 29.9
+    }
+   },
+   "mean_M6_check": 0.9994
+  },
+  "ci_high": {
+   "f": 0.5750190873035835,
+   "popular_p95": {
+    "ticket_example": [
+     3,
+     13,
+     18,
+     26,
+     37,
+     44
+    ],
+    "M6": 1.925,
+    "B_520M": {
+     "mu_cowinners": 20.0,
+     "expected_share_of_jackpot": 0.05,
+     "jackpot_if_you_win_expected_R$": 50004166,
+     "ev_jackpot": 1.0,
+     "ev_quina": 0.062,
+     "ev_quadra": 0.07,
+     "ev_total_per_R$6": 1.13,
+     "return_pct": 18.8
+    },
+    "B_620M": {
+     "mu_cowinners": 23.84,
+     "expected_share_of_jackpot": 0.0419,
+     "jackpot_if_you_win_expected_R$": 41938978,
+     "ev_jackpot": 0.84,
+     "ev_quina": 0.052,
+     "ev_quadra": 0.058,
+     "ev_total_per_R$6": 0.95,
+     "return_pct": 15.8
+    }
+   },
+   "median_p50": {
+    "ticket_example": [
+     18,
+     23,
+     35,
+     45,
+     56,
+     57
+    ],
+    "M6": 0.835,
+    "B_520M": {
+     "mu_cowinners": 8.67,
+     "expected_share_of_jackpot": 0.1153,
+     "jackpot_if_you_win_expected_R$": 115307043,
+     "ev_jackpot": 2.3,
+     "ev_quina": 0.123,
+     "ev_quadra": 0.118,
+     "ev_total_per_R$6": 2.54,
+     "return_pct": 42.4
+    },
+    "B_620M": {
+     "mu_cowinners": 10.34,
+     "expected_share_of_jackpot": 0.0967,
+     "jackpot_if_you_win_expected_R$": 96722589,
+     "ev_jackpot": 1.93,
+     "ev_quina": 0.103,
+     "ev_quadra": 0.099,
+     "ev_total_per_R$6": 2.13,
+     "return_pct": 35.6
+    }
+   },
+   "unpopular_p5": {
+    "ticket_example": [
+     1,
+     29,
+     34,
+     35,
+     46,
+     50
+    ],
+    "M6": 0.621,
+    "B_520M": {
+     "mu_cowinners": 6.45,
+     "expected_share_of_jackpot": 0.1549,
+     "jackpot_if_you_win_expected_R$": 154892412,
+     "ev_jackpot": 3.09,
+     "ev_quina": 0.164,
+     "ev_quadra": 0.154,
+     "ev_total_per_R$6": 3.41,
+     "return_pct": 56.9
+    },
+    "B_620M": {
+     "mu_cowinners": 7.69,
+     "expected_share_of_jackpot": 0.1301,
+     "jackpot_if_you_win_expected_R$": 130056488,
+     "ev_jackpot": 2.6,
+     "ev_quina": 0.138,
+     "ev_quadra": 0.129,
+     "ev_total_per_R$6": 2.86,
+     "return_pct": 47.7
+    }
+   },
+   "unpopular_p1": {
+    "ticket_example": [
+     30,
+     35,
+     49,
+     52,
+     55,
+     60
+    ],
+    "M6": 0.597,
+    "B_520M": {
+     "mu_cowinners": 6.21,
+     "expected_share_of_jackpot": 0.1608,
+     "jackpot_if_you_win_expected_R$": 160834748,
+     "ev_jackpot": 3.21,
+     "ev_quina": 0.174,
+     "ev_quadra": 0.166,
+     "ev_total_per_R$6": 3.55,
+     "return_pct": 59.2
+    },
+    "B_620M": {
+     "mu_cowinners": 7.4,
+     "expected_share_of_jackpot": 0.1351,
+     "jackpot_if_you_win_expected_R$": 135083838,
+     "ev_jackpot": 2.7,
+     "ev_quina": 0.146,
+     "ev_quadra": 0.139,
+     "ev_total_per_R$6": 2.98,
+     "return_pct": 49.7
+    }
+   },
+   "average": {
+    "M6": 1.0,
+    "B_520M": {
+     "mu_cowinners": 10.39,
+     "expected_share_of_jackpot": 0.0963,
+     "jackpot_if_you_win_expected_R$": 96273685,
+     "ev_jackpot": 1.92,
+     "ev_quina": 0.107,
+     "ev_quadra": 0.107,
+     "ev_total_per_R$6": 2.14,
+     "return_pct": 35.6
+    },
+    "B_620M": {
+     "mu_cowinners": 12.38,
+     "expected_share_of_jackpot": 0.0807,
+     "jackpot_if_you_win_expected_R$": 80747823,
+     "ev_jackpot": 1.61,
+     "ev_quina": 0.09,
+     "ev_quadra": 0.09,
+     "ev_total_per_R$6": 1.79,
+     "return_pct": 29.9
+    }
+   },
+   "mean_M6_check": 0.9994
+  }
+ },
+ "ev_curve_over_f": [
+  {
+   "f": 0.0,
+   "D": 130.46,
+   "p1_M6": 0.356,
+   "p1_mu_cowinners_520M": 3.69,
+   "p1_ev_520M": 5.72,
+   "p5_ev_520M": 4.52,
+   "p1_ev_620M": 4.85
+  },
+  {
+   "f": 0.1,
+   "D": 102.22,
+   "p1_M6": 0.379,
+   "p1_mu_cowinners_520M": 3.94,
+   "p1_ev_520M": 5.41,
+   "p5_ev_520M": 4.41,
+   "p1_ev_620M": 4.58
+  },
+  {
+   "f": 0.2,
+   "D": 72.0,
+   "p1_M6": 0.408,
+   "p1_mu_cowinners_520M": 4.23,
+   "p1_ev_520M": 5.07,
+   "p5_ev_520M": 4.27,
+   "p1_ev_620M": 4.28
+  },
+  {
+   "f": 0.3,
+   "D": 41.36,
+   "p1_M6": 0.443,
+   "p1_mu_cowinners_520M": 4.61,
+   "p1_ev_520M": 4.7,
+   "p5_ev_520M": 4.1,
+   "p1_ev_620M": 3.96
+  },
+  {
+   "f": 0.4,
+   "D": 14.28,
+   "p1_M6": 0.489,
+   "p1_mu_cowinners_520M": 5.07,
+   "p1_ev_520M": 4.3,
+   "p5_ev_520M": 3.89,
+   "p1_ev_620M": 3.62
+  },
+  {
+   "f": 0.5,
+   "D": 0.07,
+   "p1_M6": 0.545,
+   "p1_mu_cowinners_520M": 5.67,
+   "p1_ev_520M": 3.88,
+   "p5_ev_520M": 3.63,
+   "p1_ev_620M": 3.26
+  },
+  {
+   "f": 0.6,
+   "D": 20.03,
+   "p1_M6": 0.617,
+   "p1_mu_cowinners_520M": 6.4,
+   "p1_ev_520M": 3.45,
+   "p5_ev_520M": 3.34,
+   "p1_ev_620M": 2.89
+  },
+  {
+   "f": 0.7,
+   "D": 122.44,
+   "p1_M6": 0.702,
+   "p1_mu_cowinners_520M": 7.3,
+   "p1_ev_520M": 3.03,
+   "p5_ev_520M": 3.0,
+   "p1_ev_620M": 2.54
+  }
+ ],
+ "stop_rules": {
+  "1_sim_recovery_ok": true,
+  "2_misspec_no_spurious_floor": true,
+  "3_real_ci_informative": true,
+  "4_W4_W5_agree": false,
+  "f_identified": false
+ },
+ "runtime_min": 10.2
+}

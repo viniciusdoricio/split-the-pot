@@ -5,14 +5,12 @@ If a drawn combination is made of popular numbers, many more people share its 4-
 import json, numpy as np, pandas as pd
 import statsmodels.api as sm
 
-df = pd.read_pickle('draws.pkl')
-df['dt'] = pd.to_datetime(df.date, dayfirst=True)
-d = df[(df.sales > 0) & (df.w4 > 0)].copy().reset_index(drop=True)
+from common import load_draws, popularity_frame
+
+df = load_draws()
+d = popularity_frame(df)   # sales and quadra data, Virada flag, quarter label
 D = np.array(d.d.tolist())
-d['virada'] = ((d.dt.dt.month == 12) & (d.dt.dt.day == 31)) | ((d.dt.dt.month == 1) & (d.dt.dt.day == 1) & (d.dt.dt.year == 2026))
-# Virada contest numbers are flagged by date; also by sales outlier
-d['virada'] = d['virada'] | (d.sales > 8 * d.sales.rolling(9, center=True, min_periods=1).median())
-period = d.dt.dt.to_period('Q').astype(str)
+period = d.period
 FE = pd.get_dummies(period, drop_first=True, dtype=float)
 FE['virada'] = d.virada.astype(float)
 # number indicators, sum-to-zero coding (effects relative to the average number)
